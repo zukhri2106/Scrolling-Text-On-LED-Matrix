@@ -1,7 +1,7 @@
-# Scrolling-Text-On-LED-Matrix
-This repository is about creating a scrolling text on a 8x8 LED Matrix with Arduino. The user gives an input text through Serial Monitor from Arduino IDE and the Arduino will display the text on a 1588 8x8 LED Matrix.
+# Scrolling-Text-On-LED-Matrix + adjustable scrolling speed
+this is a newer version of the scrolling text display project. This newer version has a new feature: **adjustable scrolling speed**. The 8x8 LED Matrix will display text given by user in Serial Monitor and the user is able to change the scrolling speed via potentiometer
 
-## Components anjing
+## Components
 
 ✔ Arduino Uno
 
@@ -9,11 +9,12 @@ This repository is about creating a scrolling text on a 8x8 LED Matrix with Ardu
 
 ✔ 16 jumper wires
 
+✔ Potentiometer
+
 Here is a demonstration on how it will look like:
 
-https://user-images.githubusercontent.com/50172178/178288896-8749b050-a720-4e12-913d-50d1f3d8aa74.mp4
+https://user-images.githubusercontent.com/50172178/178298926-fa35c1de-3147-4fad-b9db-edbd1de8ba58.mp4
 
 ## Wiring Diagram
 
-
-<img src="https://user-images.githubusercontent.com/50172178/178288628-6ad68168-eccc-4ca0-8ff0-6fe6a6fb4254.png" width=70% height=70%>
+<img src="https://user-images.githubusercontent.com/50172178/178295971-659eb160-9bbe-4bc0-b5b3-37bf0b43f070.png" width=70% height=70%>
