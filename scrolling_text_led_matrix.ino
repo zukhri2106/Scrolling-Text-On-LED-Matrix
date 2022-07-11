@@ -1,20 +1,20 @@
-#define ROW_1 7
-#define ROW_2 10
-#define ROW_3 5
-#define ROW_4 11
-#define ROW_5 A4
-#define ROW_6 4
-#define ROW_7 A2  
-#define ROW_8 3
+#define ROW_1 8
+#define ROW_2 11
+#define ROW_3 6
+#define ROW_4 12
+#define ROW_5 A5
+#define ROW_6 5
+#define ROW_7 A3  
+#define ROW_8 4
 
-#define COL_1 A3
-#define COL_2 9
-#define COL_3 8
-#define COL_4 2
-#define COL_5 6
-#define COL_6 A5
-#define COL_7 A1
-#define COL_8 A0
+#define COL_1 A4
+#define COL_2 10
+#define COL_3 9
+#define COL_4 3
+#define COL_5 7
+#define COL_6 2
+#define COL_7 A2
+#define COL_8 A1
 
 const byte A[] = {
   B00000000,
@@ -366,7 +366,6 @@ const byte five[] = {
   B01100000,
   B00000000
 };
-//ayam masak kucing ndan anmjing
 
 const byte six[] = {
   B00000000,
@@ -456,6 +455,28 @@ const byte space[] = {
   B00000000
 };
 
+const byte smiley[] = {
+  B00011000,
+  B01100110,
+  B01000010,
+  B10000001,
+  B10000001,
+  B01000010,
+  B01100110,
+  B00011000
+};
+
+const byte love[] = {
+  B00000000,
+  B01100110,
+  B11111111,
+  B11111111,
+  B01111110,
+  B00111100,
+  B00011000,
+  B00000000
+};
+
 // struct which store the letter and the position of the letter in the matrix
 struct matrix
 {
@@ -474,24 +495,23 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
 
-  for (byte i = 2; i <= 11; i++)
+  for (byte i = 2; i <= 13; i++)
       pinMode(i, OUTPUT);
   pinMode(A0, OUTPUT);
   pinMode(A1, OUTPUT);
   pinMode(A2, OUTPUT);
   pinMode(A3, OUTPUT);
-  pinMode(A4, OUTPUT);
-  pinMode(A5, OUTPUT);
-
+  pinMode(A4, INPUT);
 }
 void loop() {
   // put your main code here, to run repeatedly:
   // read string from serial monitor input and store in s1
   String s1 = Serial.readString();// s1 is String type variable.
-  
+
   s1.remove(s1.length()-1); //remove the newline character from the string
   if(s1.length()>0)
     displayText(s1);  //  display text on the led matrix only when s1 has value
+//  testfx();
 }
 
 void displayText(String str)
@@ -523,8 +543,10 @@ void displayText(String str)
       character[i].position1 -= 1;  // update position, because the text is scrolling to the left
     }
     int counter = 0;
+    int limit = speeds(analogRead(A4));
     // counter is used to delay the display. otherwise you wont be able to read it because it is too fast
-    while(counter<80)
+    //  the higher the 'limit' the slower the text scrolling
+    while(counter<limit)
     {
       printOnMatrix(onMatrixBits);   //display on the led matrix
       counter++;
@@ -684,6 +706,7 @@ byte* charToMatrix(char c)
       return space;
       break;    
     default:
+      return space;
       break;
   }
 }
@@ -700,4 +723,9 @@ void printOnMatrix(byte b[])
     }
     digitalWrite(rows[i], LOW);
   }
+}
+
+int speeds(int potentiometer)
+{
+  return exp(-potentiometer/100+log(975))+25;
 }
