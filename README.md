@@ -16,4 +16,4 @@ https://user-images.githubusercontent.com/50172178/178288896-8749b050-a720-4e12-
 ## Wiring Diagram
 
 
-<img src="https://user-images.githubusercontent.com/50172178/178288628-6ad68168-eccc-4ca0-8ff0-6fe6a6fb4254.png" width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/50172178/178288628-6ad68168-eccc-4ca0-8ff0-6fe6a6fb4254.png" width=70% height=70%>
