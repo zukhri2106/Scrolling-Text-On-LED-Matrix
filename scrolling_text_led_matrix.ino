@@ -701,10 +701,3 @@ void printOnMatrix(byte b[])
     digitalWrite(rows[i], LOW);
   }
 }
-
-
-// Describe what you want to test here
-void testfx(String str)
-{
-   // code for your testing
-}
