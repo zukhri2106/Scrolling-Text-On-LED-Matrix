@@ -1,7 +1,7 @@
 # Scrolling-Text-On-LED-Matrix
 This repository is about creating a scrolling text on a 8x8 LED Matrix with Arduino. The user gives an input text through Serial Monitor from Arduino IDE and the Arduino will display the text on a 1588 8x8 LED Matrix.
 
-## Components anjing
+## Components
 
 ✔ Arduino Uno
 
